@@ -35,7 +35,7 @@ public class GameStatesManager : MonoBehaviour
         gameProfile = GamePreferences.initProfile();
         AudioManager.SetSFXVolume(gameProfile.SoundVolume);
         GameConstants.Instance.Init();
-        stateMachine.PushState(GSHome.Instance);
+        stateMachine.PushState(GSResult.Instance);
     }
 
     // Update is called once per frame

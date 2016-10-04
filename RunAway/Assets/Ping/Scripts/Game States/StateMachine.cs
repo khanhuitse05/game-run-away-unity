@@ -6,20 +6,15 @@ public abstract class IState : MonoBehaviour
 {
     public ParameterWrapper parameters = new ParameterWrapper();
     protected virtual void Awake()
-    {
-        this.gameObject.SetActive(false);
-    }
+    { }
     public virtual void onSuspend()
     { }
     public virtual void onResume()
     { }
     public virtual void onEnter()
-    {
-        this.gameObject.SetActive(true);
-    }
+    { }
     public virtual void onExit()
     {
-        this.gameObject.SetActive(false);
         parameters.Clear();
     }
 }

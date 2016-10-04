@@ -41,7 +41,7 @@ public class GameController : MonoBehaviour {
     {
         Utils.Log("Start game");
         score = 0;
-        textScore.text = "" + Score;
+        textScore.text = "" + Score + " M";
         speed = GameConstants.Instance.speed;
         acceleration = GameConstants.Instance.acceleration;
         maxSpeed = GameConstants.Instance.maxSpeed;
@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour {
                 speed += Time.deltaTime * acceleration;
             }
             score += speed * Time.deltaTime * 0.01f;
-            textScore.text = "" + Score;
+            textScore.text = "" + Score + " M";
             UpdateGround();
         }
 	}

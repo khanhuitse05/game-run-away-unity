@@ -16,7 +16,6 @@ public class GSGamePlay : GSTemplate
     protected override void Awake()
     {
         base.Awake();
-        Utils.setActive(guiHUD, false);
         _instance = this;
     }
 
@@ -29,14 +28,12 @@ public class GSGamePlay : GSTemplate
     {
         base.onSuspend();
         GameController.Instance.OnGameOver = null;
-        guiHUD.SetActive(false);
     }
 
     public override void onResume()
     {
         base.onResume();
         GameController.Instance.OnGameOver = OnGameOver;
-        guiHUD.SetActive(true);
     }
     protected override void onBackKey()
     {
