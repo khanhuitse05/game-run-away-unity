@@ -31,7 +31,7 @@ public class Ground : MonoBehaviour {
         width = ww;
         height = hh;
         int _wFix = ((int)ww / WIDTH_MIN) * WIDTH_MIN;
-        int _hFix = ((int)hh / HEIGHT_MIN + 1) * HEIGHT_MIN;
+        int _hFix = ((int)hh / HEIGHT_MIN + 2) * HEIGHT_MIN;
 
         rectTranform.sizeDelta = new Vector2(_wFix, _hFix);
         int _posY = HEIGHT_TERRACE + hh - _hFix;

@@ -81,17 +81,33 @@ public class GameController : MonoBehaviour {
     {
         _currentGround = poolManager.Spawn(1200, HeightGround, -570);
     }
+    int _hh;
+    int _xx;
+    int _ww;
+    int _minW;
+    int _maxW;
     void addNextGround()
     {
-        int _hh = HeightGround + Utils.Random(-10, 10);
+        _hh = HeightGround + Utils.Random(-20, 100);
         int _jumpDistance = jumpDistace();
         int _distance = Utils.Random(200, _jumpDistance);
-        int _xx = (int)(_currentGround.width + _currentGround.transform.localPosition.x + _distance);
-        int _ww = Utils.Random(_jumpDistance - _distance, _jumpDistance - _distance + 600);
-        if (_ww < 180)
+        if (_hh > _currentGround.height)
         {
-            _ww = 180;
+            _distance -= _hh - _currentGround.height;
+            _minW = _jumpDistance - _distance;
         }
+        else
+        {
+            _minW = _jumpDistance - _distance + _currentGround.height - _hh;
+        }
+
+        if (_minW < 180)
+        {
+            _minW = 180;
+        }
+        _maxW = _jumpDistance - _distance + 600;
+        _ww = Utils.Random(_minW, _maxW);
+        _xx = (int)(_currentGround.width + _currentGround.transform.localPosition.x + _distance);
         _currentGround = poolManager.Spawn(_ww, _hh, _xx);
     }
     int jumpDistace()
